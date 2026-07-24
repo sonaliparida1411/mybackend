@@ -13,6 +13,8 @@ app.use(express.json());
 
 // Import Routes
 const userRoutes = require("./routes/userRoutes");
+const todoRoutes = require("./routes/todoRoutes");
+const authRoutes = require("./routes/authRoutes");
 
 // Home Route
 app.get("/", (req, res) => {
@@ -21,6 +23,8 @@ app.get("/", (req, res) => {
 
 // API Routes
 app.use("/api/users", userRoutes);
+app.use("/api/todos", todoRoutes);
+app.use("/api/auth", authRoutes);
 
 // Handle Invalid Routes
 app.use((req, res) => {
@@ -31,7 +35,7 @@ app.use((req, res) => {
 });
 
 // Server Port
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5050;
 
 // Start Server
 app.listen(PORT, () => {
